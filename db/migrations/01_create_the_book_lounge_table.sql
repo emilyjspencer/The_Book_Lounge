@@ -1,0 +1,1 @@
+CREATE TABLE the_book_lounge(id SERIAL PRIMARY KEY, title VARCHAR(60), author VARCHAR(60), genre VARCHAR(60), isbn VARCHAR(60));
