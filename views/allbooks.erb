@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<img id="book" src="http://localhost:9292/Images/book.gif" alt="book">
+
+<ol>
+   <% @books.each do |book| %>
+     
+     <li>
+       <h3><%= book.title %></h3>
+           <%= book.author %>
+         <p><%= book.genre %></p>
+         <p><%= book.isbn%></p>     
+    </li>
+   <% end %>
+ </ol>
+
+
+
+</div>
+</body>
+
+<style>
+.body {
+  background-color: #9999ff;
+  font-size: 20px;
+  text-align: center;
+}
