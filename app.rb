@@ -7,6 +7,10 @@ class TheBookLounge < Sinatra::Base
   
   enable :sessions
 
+  get '/' do
+    erb(:index)
+  end
+
   
 
 

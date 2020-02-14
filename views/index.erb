@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+<div class="reading">
+Looking for your next read?
+<br>
+<br>
+Look no further...
+
+<form action="/searchbooks" method="post">
+<label for="title">
+Search for a book:
+  <input type="text" name="title" placeholder="title">
+  <input type="text" name="author" placeholder="author">
+  </label>
+  <input type="submit" value="search">
+</form>
+<br>
+<br>
+
+<br>
+<br>
+Sign up:
+<form action='/signup' method='get'>
+    <button class='submit' name="signup" type='submit'>Sign Up</button>
+  </form>
+Login:
+  <form action='/login/new' method='get'>
+    <button class='submit' type='submit'>Login</button>
+  </form>
+
+<form action="/booksadded" method="post">
+<label for="title2">
+Add a book:
+  <input type="text" name="title2" placeholder="title">
+  <input type="text" name="author2" placeholder="author">
+  <input type="text" name="genre2" placeholder="genre">
+  <input type="text" name="isbn2" placeholder="isbn">
+  <input type="submit" value="Add"> <%#this should create an entry%>
+</form>
+<br>
+<br>
+<br>
+<br>
+
+View all books:
+
+<form action="/allbooks" method="post">
+<input type="submit" value"Submit">
+</form>
+
+</div>
+</body>
+
+<style>
+.reading {
+  background-color: #9999ff;
+  font-size: 20px;
+  text-align: center;
+}
+
+
+</style>
+</html>
