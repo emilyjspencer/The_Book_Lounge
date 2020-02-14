@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+Book added to the database
+
+<img src="book.gif">
+
+
+<ol>
+   <% @books.each do |book| %>
+     
+     <li>
+       <h3><%= book.title %></h3>
+           <%= book.author %>
+         <p><%= book.genre %></p>
+         <p><%= book.isbn%></p>     
+    </li>
+   <% end %>
+ </ol>
+
+
+
+</body>
+</html>

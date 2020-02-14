@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require './setup_database_environment_dependent'
+require './lib/book'
 require 'pg'
 
 
@@ -21,10 +22,20 @@ class TheBookLounge < Sinatra::Base
     erb(:booksadded)
   end
 
+  
   post '/booksadded' do
-    "Hello World"
+    Book.create_entry(title: params[:title2], author: params[:author2], genre: params[:genre2], isbn: params[:isbn2])
+       redirect '/booksaddedtodb'
   end
 
+  post '/allbooks' do
+    redirect '/allbooks'
+  end
+
+  get '/allbooks' do
+    @books = Book.all
+    erb(:allbooks)
+  end
   
 
 
