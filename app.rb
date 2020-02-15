@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require './setup_database_environment_dependent'
 require './lib/book'
+require './lib/user'
 require 'pg'
 
 
@@ -42,7 +43,7 @@ class TheBookLounge < Sinatra::Base
   end
 
   post '/signup' do
-    user = User.create(name: params[:name], email: params[:email], phone: params[:phone], password: params[:password])
+    user = User.create(name: params[:name], email: params[:email], phone_number: params[:phone_number], password: params[:password])
     session[:user_id] = user.user_id
     session[:user_name] = user.user_name
     redirect to '/signedup'
