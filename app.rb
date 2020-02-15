@@ -37,6 +37,16 @@ class TheBookLounge < Sinatra::Base
     erb(:allbooks)
   end
   
+  get '/signup' do
+    erb(:signup)
+  end
+
+  post '/signup' do
+    user = User.create(name: params[:name], email: params[:email], phone: params[:phone], password: params[:password])
+    session[:user_id] = user.user_id
+    session[:user_name] = user.user_name
+    redirect to '/signedup'
+  end
 
 
   run if app_file == $0
