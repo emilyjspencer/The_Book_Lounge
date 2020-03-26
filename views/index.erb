@@ -2,11 +2,23 @@
 <html>
 <body>
 <div class="reading">
+Sign up:
+<form action='/signup' method='get'>
+    <button class='submit' name="signup" type='submit'>Sign Up</button>
+</form>
+<br>
+<br>
+<p id="header">THE BOOK LOUNGE</p>
+<br>
 Looking for your next read?
 <br>
 <br>
+<br>
+<br>
 Look no further...
-
+<br>
+<br>
+<br>
 <form action="/searchbooks" method="post">
 <label for="title">
 Search for a book:
@@ -17,10 +29,7 @@ Search for a book:
 </form>
 <br>
 <br>
-Sign up:
-<form action='/signup' method='get'>
-    <button class='submit' name="signup" type='submit'>Sign Up</button>
-</form>
+
 
 <br>
 <br>
@@ -53,6 +62,11 @@ View all books:
   background-color: #9999ff;
   font-size: 20px;
   text-align: center;
+}
+
+p {
+  font-size: 30px;
+
 }
 
 

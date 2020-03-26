@@ -2,11 +2,11 @@
 <html>
 <body>
 
-Book added to the database
+<h1 align="center">Book added to the database</h1>
 
-<img src="book.gif">
+<img class="center" src="http://localhost:9292/Images/book.gif">
 
-
+<div class="books">
 <ol>
    <% @books.each do |book| %>
      
@@ -18,8 +18,26 @@ Book added to the database
     </li>
    <% end %>
  </ol>
+ </div>
+
+<style>
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+.books {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
 
 
+</style>
 
 </body>
 </html>
