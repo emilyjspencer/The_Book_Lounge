@@ -1,7 +1,7 @@
 
-#The Book Lounge allow users to sign up for an account, search for books in #the database, and add books to the database.
+#The Book Lounge allow users to sign up for an account, search for books in 
+#the database, and add books to the database.
 
-```
 
 ##User Stories
 
