@@ -2,23 +2,20 @@
 <html>
 <body>
 <div class="reading">
-Sign up:
+<div class="form">
 <form action='/signup' method='get'>
-    <button class='submit' name="signup" type='submit'>Sign Up</button>
+    <button class='signup' name="signup" type='submit'>Sign Up</button>
 </form>
 <br>
 <br>
-<p id="header">THE BOOK LOUNGE</p>
-<br>
-Looking for your next read?
-<br>
-<br>
-<br>
-<br>
-Look no further...
-<br>
-<br>
-<br>
+<form action='/login' method='get'>
+    <button class='login' name="login" type='submit'>Login</button>
+</form>
+</div>
+<h1>Looking for your next read?</h1>
+<img class="center" src="http://localhost:9292/Images/thebooklounge.jpg">
+
+<h2 align="center">Look no further...</h2>
 <form action="/searchbooks" method="post">
 <label for="title">
 Search for a book:
@@ -29,12 +26,8 @@ Search for a book:
 </form>
 <br>
 <br>
-
-
 <br>
 <br>
-
-
 <form action="/booksadded" method="post">
 <label for="title2">
 Add a book:
@@ -46,13 +39,12 @@ Add a book:
 </form>
 <br>
 <br>
-<br>
-<br>
-View all books:
-
+<h2>View all Books</h2>
+<div class="allbooks">
 <form action="/allbooks" method="post">
-<input type="submit" value"Submit">
+<input class="allbooks" type="submit" value="View All Books">
 </form>
+</div>
 
 </div>
 </body>
@@ -66,8 +58,41 @@ View all books:
 
 p {
   font-size: 30px;
-
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+  height: 400px;
+}
+
+.form {
+  float: right;
+  position: relative;
+  top: 20px;
+}
+
+
+.signup {
+  width: 70px;
+  height: 40px;
+  position: absolute;
+  right: 1100px;
+  background-color: rgb(153, 102, 255);
+}
+
+.login {
+  width: 70px;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  background-color: rgb(153, 102, 255);
+}
+
+
 
 
 </style>
