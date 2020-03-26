@@ -1,4 +1,4 @@
-Sign-up
+Sign-up/login/logout
 
 As a non-registered user,
 So I can start to use The Book Loung,
