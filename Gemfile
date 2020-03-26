@@ -1,10 +1,11 @@
-ruby '2.6.3'
+ruby '2.7.0'
 
 source "https://rubygems.org"
 
 gem 'sinatra'
 gem 'rake'
 gem 'pg'
+gem 'sinatra-flash'
 
 
 group :test do

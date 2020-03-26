@@ -3,10 +3,12 @@ require './setup_database_environment_dependent'
 require './lib/book'
 require './lib/user'
 require 'pg'
+require 'sinatra/flash'
 
 
 class TheBookLounge < Sinatra::Base
-  
+
+  register Sinatra::Flash 
   enable :sessions
 
   get '/' do
@@ -37,6 +39,10 @@ class TheBookLounge < Sinatra::Base
     @books = Book.all
     erb(:allbooks)
   end
+
+  post '/searchbooks' do
+    "Hello World"
+  end
   
   get '/signup' do
     erb(:signup)
@@ -47,6 +53,21 @@ class TheBookLounge < Sinatra::Base
     session[:user_id] = user.user_id
     session[:user_name] = user.user_name
     redirect to '/signedup'
+  end
+
+  get '/login' do
+    erb(:login)
+  end 
+
+
+
+  post '/login' do
+    flash[:notice] = "You have loggied in to The Book Lounge"
+    redirect to '/'
+  end
+
+  get '/logout' do
+    erb(:logout)
   end
 
 
