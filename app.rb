@@ -4,6 +4,7 @@ require './lib/book'
 require './lib/user'
 require 'pg'
 require 'sinatra/flash'
+require 'bcrypt'
 
 
 class TheBookLounge < Sinatra::Base
