@@ -1,12 +1,14 @@
+# The Book Lounge
+
 
 The Book Lounge allow users to sign up for an account, search for books in
 the database, and add books to the database.
 
 
-```
+
 User Stories
 
-
+```
 Sign-up/login/logout
 
 As a non-registered user,
@@ -51,9 +53,9 @@ I'd like to see a list of books when I click on 'view all books'
 ```
 
 
-Database creation.
+### Database creation.
 
-The Book Lounge uses PostgreSQL, so if you don't have it installed on your computer, please do the following:
+The Book Lounge uses **PostgreSQL**, so if you don't have it installed on your computer, please do the following:
 
 Install postgres:
 
@@ -82,15 +84,23 @@ Create a test database:
 
 Create the following tables, by typing the following SQL commands:
 
+```html
 **CREATE TABLE the_book_lounge(id SERIAL PRIMARY KEY, title VARCHAR(60), author VARCHAR(60), genre VARCHAR(60), isbn VARCHAR(60));**
+```
 
+```html
 **CREATE TABLE users(id SERIAL PRIMARY KEY, name VARCHAR(40), email VARCHAR(60), password VARCHAR(20), phone_number VARCHAR(10));**
+```
 
+```html
 **ALTER TABLE users ALTER COLUMN phone_number TYPE varchar(15);**
-
+```
+ß
 Check that the tables have been created by typing the following: 
 
+```html
 **\dt**
+```
 
 
 How to use:
@@ -101,11 +111,34 @@ Clone this repository:
 
 cd into the repo on your computer
 
+Rundle **bundle install**
+
 Start the server:
 
-**ruby app.rb**
+**rackup**
 
-**Go to localhost:3000**
+**Go to localhost:9292**
+
+### How to run the tests
+
+* Type the following into the terminal: 
+```html
+rspec
+```
+
+## Built with
+
+* Ruby
+* Sinatra
+* HTML/CSS
+* SQL 
+
+## Tested with
+
+* RSpec
+* Capybara 
+
+### What it looks like:
 
 
 
