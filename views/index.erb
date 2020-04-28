@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <title>Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
 <body>
+<img id="booklounge" class="center" src="Images/booklounge.png">
+<h1 align="center" id="looking">Looking for your next read?</h1>
+<div class="container">
+  <div class="rectangle">
+    <h2>New Books We Love</h2>
+  </div>
+  <div class="rectangle mid">
+    <h2>Book Finder</h2>   </div>
+  <div class="rectangle">
+    <h2>View our Book Lists</h2>
+  </div>
+</div>
 <div class="reading">
 <div class="form">
 <form action='/signup' method='get'>
@@ -12,9 +28,6 @@
     <button class='login' name="login" type='submit'>Login</button>
 </form>
 </div>
-<h1>Looking for your next read?</h1>
-<img class="center" src="http://localhost:9292/Images/thebooklounge.jpg">
-
 <h2 align="center">Look no further...</h2>
 <form action="/searchbooks" method="post">
 <label for="title">
@@ -51,7 +64,7 @@ Add a book:
 
 <style>
 .reading {
-  background-color: #9999ff;
+  background-color:  #f2f2f2;
   font-size: 20px;
   text-align: center;
 }
@@ -80,7 +93,7 @@ p {
   height: 40px;
   position: absolute;
   right: 1100px;
-  background-color: rgb(153, 102, 255);
+  background-color: #e6ffff;
 }
 
 .login {
@@ -89,9 +102,48 @@ p {
   position: absolute;
   right: 20px;
   top: 10px;
-  background-color: rgb(153, 102, 255);
+  background-color: #e6ffff;
 }
 
+.container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .rectangle {
+    font-family: Dancing Script;
+    background:  #e6ffff;
+    color: gray;
+    padding: 20px;
+    transition: 2.9s background;
+    height: 100px;
+    flex: 1 1 220px;
+  }
+  
+  .mid {
+    background:  #f2f2f2;;
+  }
+  
+  .rectangle:hover {
+    background: #db8ee6;
+  }
+  
+  h2 {
+    font-size: 30px;
+  }
+
+  #booklounge {
+    width: 1400px;
+
+  }
+
+  #looking {
+    font-family: 'Dancing Script', cursive;
+  }
+
+  h2 {
+    font-family: Dancing Script;
+  }
 
 
 
