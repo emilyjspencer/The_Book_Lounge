@@ -140,6 +140,8 @@ rspec
 
 ### What it looks like:
 
+![home](home.png)
+
 
 
 
