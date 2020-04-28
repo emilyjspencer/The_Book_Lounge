@@ -140,7 +140,11 @@ rspec
 
 ### What it looks like:
 
-![home](home.png)
+![home2](home2.png)
+![home](signup.png)
+![home](logout.png)
+![home](viewbooks.png)
+![home](booksadded.png)
 
 
 
