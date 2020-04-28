@@ -23,7 +23,7 @@ class TheBookLounge < Sinatra::Base
 
   get '/booksaddedtodb' do
     @books = Book.all 
-    erb(:booksadded)
+    erb(:booksaddedtodb)
   end
 
   

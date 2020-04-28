@@ -1,8 +1,7 @@
-
 <!DOCTYPE html>
 <html>
 <head>
-  <title>All Books</title>
+  <title>Books added to database</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -21,12 +20,16 @@
 <input type="submit" value="Back to Home">
 </form>
 <div class="reading">
-Log out:
-<form action='/logout' method='get'>
+<form id="logout" action='/logout' method='get'>
     <button class='submit' name="logout" type='submit'>Log out</button>
 </form>
+<h1 align="center">The Book Lounge</h1>
+<h3 align="center">Book added to the database</h3>
+<br>
+<br>
 
 
+<div class="books">
 <ol>
    <% @books.each do |book| %>
      
@@ -38,15 +41,27 @@ Log out:
     </li>
    <% end %>
  </ol>
-
-
-
-</div>
-
-
+ </div>
 
 <style>
-<div class="reading">
+
+body {
+  font-family: Dancing Script;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+.books {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
 
 .center {
   display: block;
@@ -63,15 +78,38 @@ Log out:
   max-width: 1500px;
 }
 
-
-body {
+h1 {
   font-family: Dancing Script;
+}
+
+h3 {
+  font-family: Dancing Script;
+}
+
+#booklounge {
+  width: 1500px;
+}
+
+#logout {
+  float: right;
+  position: relative;
+  right: 20px;
+  
+}
+
+#logoutlabel {
+  float: right;
+}
+
+button {
+  height: 40px;
+  width: 80px;
+  border-radius: 95%;
 }
 
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 1500px;
   }
   
   .rectangle {
@@ -96,11 +134,8 @@ body {
     font-size: 30px;
   }
 
-  img {
-    width: 1500px;
-  }
 
-
+</style>
 
 </body>
 </html>
