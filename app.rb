@@ -13,63 +13,45 @@ class TheBookLounge < Sinatra::Base
   enable :sessions
 
   get '/' do
-    erb(:index)
+    erb(:"home/index")
   end
 
-  post '/' do
+  post '/books/add' do
     Book.create_entry(title: params[:title2], author: params[:author2], genre: params[:genre2], isbn: params[:isbn2])
-    redirect  '/booksaddedtodb'
+    redirect to '/books'
   end
 
-  get '/booksaddedtodb' do
+  get '/books' do
     @books = Book.all 
-    erb(:booksaddedtodb)
-  end
-
-  
-  post '/booksadded' do
-    Book.create_entry(title: params[:title2], author: params[:author2], genre: params[:genre2], isbn: params[:isbn2])
-       redirect '/booksaddedtodb'
-  end
-
-  post '/allbooks' do
-    redirect '/allbooks'
-  end
-
-  get '/allbooks' do
-    @books = Book.all
-    erb(:allbooks)
-  end
-
-  post '/searchbooks' do
-    "Hello World"
+    erb(:"books/index")
   end
   
-  get '/signup' do
-    erb(:signup)
-  end
 
-  post '/signup' do
-    user = User.create(name: params[:name], email: params[:email], phone_number: params[:phone_number], password: params[:password])
+  post '/users' do
+    user = User.create(name: params[:name], email: params[:email], password: params[:password])
     session[:user_id] = user.user_id
     session[:user_name] = user.user_name
-    redirect to '/signedup'
+    flash[:success] = 'You have successfully signed up for The Book Lounge'
+    redirect to '/books'
   end
 
-  get '/login' do
-    erb(:login)
+  get '/users/new' do 
+    erb(:"users/new")
   end 
 
+  get '/sessions/new' do
+    erb(:"users/new")
+  end 
 
-
-  post '/login' do
-    flash[:notice] = "You have loggied in to The Book Lounge"
-    redirect to '/'
+  post '/sessions' do
+    redirect to '/books'
   end
 
-  get '/logout' do
-    erb(:logout)
-  end
+  post '/sessions/destroy' do
+    session.clear
+    flash[:notice] = You have logged out of The Book Lounge!
+    redirect '/'
+  end 
 
 
   run if app_file == $0

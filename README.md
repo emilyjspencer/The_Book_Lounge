@@ -6,7 +6,7 @@ the database, and add books to the database.
 
 
 
-User Stories
+### User Stories
 
 ```
 Sign-up/login/logout
@@ -67,22 +67,25 @@ Start postgres:
 
 **psql postgres**
 
-Create database:
+**Create database:**
+
+```html
+CREATE DATABASE the_book_lounge;
+```
 
 
-**CREATE DATABASE the_book_lounge;**
+**Create a test database:**
+
+```html
+CREATE DATABASE the_book_lounge_test;
+```
 
 
-Create a test database:
-
-**CREATE DATABASE the_book_lounge_test;**
-
-
-###Connect to the_book_lounge database by typing:
+### Connect to the_book_lounge database by typing:
 
 **\c** 
 
-Create the following tables, by typing the following SQL commands:
+**Create the following tables, by typing the following SQL commands:**
 
 ```html
 **CREATE TABLE the_book_lounge(id SERIAL PRIMARY KEY, title VARCHAR(60), author VARCHAR(60), genre VARCHAR(60), isbn VARCHAR(60));**
@@ -95,23 +98,23 @@ Create the following tables, by typing the following SQL commands:
 ```html
 **ALTER TABLE users ALTER COLUMN phone_number TYPE varchar(15);**
 ```
-ß
-Check that the tables have been created by typing the following: 
+
+**Check that the tables have been created by typing the following:** 
 
 ```html
 **\dt**
 ```
 
 
-How to use:
+### How to use:
 
-Clone this repository:
+**Clone this repository:**
 
 **git clone https://github.com/emilyjspencer/The_Book_Lounge.git**
 
-cd into the repo on your computer
+**cd into the repo**
 
-Rundle **bundle install**
+Run **bundle install**
 
 Start the server:
 
@@ -121,7 +124,8 @@ Start the server:
 
 ### How to run the tests
 
-* Type the following into the terminal: 
+**Enter:
+
 ```html
 rspec
 ```

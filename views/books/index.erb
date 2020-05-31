@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Books</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+</head>
+<body>
+<img id="booklounge" class="center" src="Images/booklounge.png">
+<div class="container">
+  <div class="rectangle">
+    <h2>New Books We Love</h2>
+  </div>
+  <div class="rectangle mid">
+    <h2>Book Finder</h2>   </div>
+  <div class="rectangle">
+    <h2>View our Book Lists</h2>
+  </div>
+</div>
+<form action="/" method="get">
+<input type="submit" value="Back to Home">
+</form>
+<div class="reading">
+Log out:
+<form action='/logout' method='get'>
+    <button class='submit' name="logout" type='submit'>Log out</button>
+</form>
+
+
+<ol>
+   <% @books.each do |book| %>
+     
+     <li>
+       <h3><%= book.title %></h3>
+           <%= book.author %>
+         <p><%= book.genre %></p>
+         <p><%= book.isbn%></p>     
+    </li>
+   <% end %>
+ </ol>
+
+
+
+</div>
+
+
+
+<style>
+<div class="reading">
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+.reading {
+  background-color: #f2f2f2;
+  font-size: 20px;
+  text-align: center;
+  width: 1500px;
+  max-width: 1500px;
+}
+
+
+body {
+  font-family: Dancing Script;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1500px;
+  }
+  
+  .rectangle {
+    font-family: Dancing Script;
+    background:  #e6ffff;
+    color: gray;
+    padding: 20px;
+    transition: 2.9s background;
+    height: 100px;
+    flex: 1 1 220px;
+  }
+  
+  .mid {
+    background:  #f2f2f2;;
+  }
+  
+  .rectangle:hover {
+    background: #db8ee6;
+  }
+  
+  h2 {
+    font-size: 30px;
+  }
+
+  img {
+    width: 1500px;
+  }
+
+
+
+</body>
+</html>
