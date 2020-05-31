@@ -30,21 +30,37 @@ Log out:
 <br>
 <h3>Add a book</h3>
 
-<form action='/books/add'
+<form action='/books/add' method="POST">
 <label for="title">Add a title</label>
-<input type="text" name="title">
+<input type="text" name="title2">
 <label for="author">Add an author</label>
-<input type="author" name="author">
+<input type="author" name="author2">
 <label for="genre">Add a genre</label>
-<input type="genre" name="genre">
+<input type="genre" name="genre2">
 <label for="isbn">Add an isbn</label>
-<input type="isbn" name="isbn">
-    <button class='submit' name="addbook" type='submit'>Submit</button>
+<input type="isbn" name="isbn2">
+    <button class='submit' name="addbook" type='submit'>Add</button>
 </form>
 <br>
 <br>
 <br>
 <br>
+<h3>Search for a book</h3>
+<br>
+<br>
+<h4>Search for a book by title, author, genre or isbn</h4>
+
+<form action='/books/find'>
+<label for="title">Enter a title</label>
+<input type="text" name="title">
+<label for="author">Enter an author</label>
+<input type="author" name="author">
+<label for="genre">Enter a genre</label>
+<input type="genre" name="genre">
+<label for="isbn">Enter an isbn</label>
+<input type="isbn" name="isbn">
+    <button class='submit' name="searchbook" type='submit'>Submit</button>
+</form>
 <br>
 <h3>View all books</h3>
 <ol>
