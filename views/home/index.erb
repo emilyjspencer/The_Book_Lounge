@@ -18,60 +18,16 @@
   </div>
 </div>
 <div class="reading">
-<div class="form">
-<form action='/signup' method='get'>
-    <button class='signup' name="signup" type='submit'>Sign Up</button>
+
+<br>
+<br>
+<form action='/users/new'>
+    <button class='login' name="login" type='submit'>Sign Up</button>
 </form>
 <br>
-<br>
-<form action='/login' method='get'>
-    <button class='login' name="login" type='submit'>Log In</button>
-</form>
-<br>
-<form action='/logout' method='get'>
-  <button class='logout' name="logout" type='submit'>Log Out</button>
-</form>
-</div>
-<h2 align="center">Look no further...</h2>
-<form action="/showsearchedbooks" method="post">
-<label for="title">
-Search for a book:
-  <input type="text" name="title" placeholder="title">
-  <input type="text" name="author" placeholder="author">
-  </label>
-  <input type="submit" value="search">
-</form>
-<br>
-<br>
-<br>
-<br>
-<form action="/booksadded" method="post">
-<label for="title2">
-Add a book:
-  <input type="text" name="title2" placeholder="title">
-  <input type="text" name="author2" placeholder="author">
-  <input type="text" name="genre2" placeholder="genre">
-  <input type="text" name="isbn2" placeholder="isbn">
-  <input type="submit" value="Add">
-</form>
-<br>
-<br>
-<form action="/booksdeleted" method="post">
-<label for="title2">
-Delete a book:
-  <input type="text" name="title2" placeholder="title">
-  <input type="submit" value="Delete">
-</form>
-<br>
-<br>
-<h2>View all Books</h2>
-<div class="allbooks">
-<form action="/allbooks" method="post">
-<input class="allbooks" type="submit" value="View All Books">
-</form>
-</div>
 
 </div>
+
 </body>
 
 <style>

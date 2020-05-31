@@ -29,8 +29,8 @@ class TheBookLounge < Sinatra::Base
 
   post '/users' do
     user = User.create(name: params[:name], email: params[:email], password: params[:password])
-    session[:user_id] = user.user_id
-    session[:user_name] = user.user_name
+    session[:user_id] = user.id
+    session[:user_name] = user.name
     flash[:success] = 'You have successfully signed up for The Book Lounge'
     redirect to '/books'
   end
@@ -49,7 +49,7 @@ class TheBookLounge < Sinatra::Base
 
   post '/sessions/destroy' do
     session.clear
-    flash[:notice] = You have logged out of The Book Lounge!
+    flash[:notice] = 'You have logged out of The Book Lounge!'
     redirect '/'
   end 
 

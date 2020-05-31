@@ -1,34 +1,29 @@
 require 'pg'
 require_relative 'book'
+require 'bcrypt'
+require './lib/database_connection'
 
 class User
 
-attr_reader :uid, :name, :email, :password, :phone_number
+attr_reader :id, :name, :email, :password 
 
-  def initialize(db_row)
-    @uid = db_row['uid']
-    @name = db_row['name']
-    @email = db_row['email']
-    @password = db_row['password']
-    @phone_number = db_row['phone_number']
+  def initialize(id:, name:, email: )
+    @id = id
+    @name = name
+    @email = email
   end
 
-  def self.create(name:, email:, password:, phone_number:)
-    return false unless is_email?(email)
-    result = DatabaseConnection.query("INSERT INTO users (name, email, password, phone_number) VALUES ('#{name}', '#{email}', '#{password}', '#{phone_number}')")
+
+  def self.create(name:, email:, password:)
+    encrypted_password = BCrypt::Password.create(password)
+    result = DatabaseConnection.query("INSERT INTO users (name, email, password) VALUES('#{name}', '#{email}', '#{encrypted_password}') RETURNING id, name, email;")
+    User.new(
+      id: result[0]['id'], 
+      name: result[0]['name'], 
+      email: result[0]['email']
+    )
   end
 
-  def self.all
-    result = DatabaseConnection.query("SELECT * FROM users").map { |row| User.new(row) }
-  end
-
-  private 
-
-  def self.is_email?(email)
-    email =~ URI::MailTo::EMAIL_REGEXP
-  end
-
-  
 
 
 end 
