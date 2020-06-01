@@ -2,6 +2,7 @@ require 'sinatra/base'
 require './setup_database_environment_dependent'
 require './lib/book'
 require './lib/user'
+require './lib/book'
 require 'pg'
 require 'sinatra/flash'
 require 'bcrypt'
@@ -43,6 +44,16 @@ class TheBookLounge < Sinatra::Base
     flash[:notice] = 'Book record was updated!'
     redirect('/books')
   end
+
+  get './books/:id/reviews/new' do
+    @book_id = params[:id]
+    erb(:'reviews/new')
+  end
+
+  post '/books/id:reviews' do
+    Review.create(text: params[:review], book_id: params[:id])
+    redirect '/books'
+  end 
 
   post '/users' do
     user = User.create(name: params[:name], email: params[:email], password: params[:password])
