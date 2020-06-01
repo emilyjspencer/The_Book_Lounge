@@ -36,6 +36,25 @@ require 'database_helpers'
     end 
   end
 
+  describe '.edit' do
+    it 'updates a book record' do
+      book = Book.create_entry(title: 'Frankenstein', author: 'Mary Shelley', genre: 'Gothic', isbn: '9781847493507')
+      edited_book = Book.edit(id: book.id, title: 'The Princess Diaries', author: 'Meg Cabot', genre: 'humour', isbn: '9780330482059')
+      expect(edited_book.title).to eq 'The Princess Diaries'
+      expect(edited_book.author).to eq 'Meg Cabot'    
+    end
+  end
+
+  describe '.find' do
+    it 'finds a book by its id' do
+      book = Book.create_entry(title: 'The Princess Diaries', author: 'Meg Cabot', genre: 'humour', isbn: '9780330482059')
+      result = Book.find(id: book.id)
+      expect(result.title).to eq 'The Princess Diaries'
+      expect(result.genre).to eq 'humour'
+    end
+  end 
+
+
  
 
 end 

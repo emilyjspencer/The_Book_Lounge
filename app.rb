@@ -33,7 +33,16 @@ class TheBookLounge < Sinatra::Base
     redirect '/books'
   end
 
-  
+  get '/books/:id/update' do
+    @book = Book.find(params[:id])
+    erb(:"books/edit_book")
+  end
+
+  patch '/books/:id' do
+    Book.edit(id: params[:id], title: params[:title], author: params[:author], genre: params[:genre], isbn: params[:isbn])
+    flash[:notice] = 'Book record was updated!'
+    redirect('/books')
+  end
 
   post '/users' do
     user = User.create(name: params[:name], email: params[:email], password: params[:password])

@@ -59,6 +59,10 @@ Log out:
       <input type='hidden' name='_method' value='DELETE'/>
       <input type="submit" value="Delete">
     </form>
+    <form action="/books/<%=book.id%>/update" method='get'>
+      <input type="submit" value="Update Book Record" />
+    </form>
+
     
 <% end %>
 </ol>
