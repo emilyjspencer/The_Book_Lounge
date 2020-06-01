@@ -2,8 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
   <title>All Books</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="/css/index.css">
 </head>
 <body>
 <img id="booklounge" class="center" src="Images/booklounge.png">
@@ -62,8 +64,14 @@ Log out:
     <form action="/books/<%=book.id%>/update" method='get'>
       <input type="submit" value="Update Book Record" />
     </form>
-
-    
+    <form action="/books/<%= book.id %>/reviews/new" method="get">
+    <input type="submit" value="Add review">
+    </form>
+      <ul>
+        <% book.add_review.each do |review| %>
+          <li><%= review.text %></li>
+        <% end %>
+      </ul>
 <% end %>
 </ol>
 
