@@ -8,6 +8,7 @@ require 'bcrypt'
 
 
 class TheBookLounge < Sinatra::Base
+  enable :sessions, :method_override
 
   register Sinatra::Flash 
   enable :sessions
@@ -17,7 +18,7 @@ class TheBookLounge < Sinatra::Base
   end
 
   post '/books/add' do
-    Book.create_entry(title: params[:title2], author: params[:author2], genre: params[:genre2], isbn: params[:isbn2])
+    Book.create_entry(params[:title], params[:author], params[:genre], params[:isbn])
     redirect to '/books'
   end
 
@@ -25,6 +26,13 @@ class TheBookLounge < Sinatra::Base
     @books = Book.all 
     erb(:"books/index")
   end
+
+
+  delete '/books/:id' do
+    Book.delete(id: params[:id])
+    redirect '/books'
+  end
+
   
 
   post '/users' do

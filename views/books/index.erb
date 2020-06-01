@@ -22,8 +22,8 @@
 </form>
 <div class="reading">
 Log out:
-<form action='/logout' method='get'>
-    <button class='submit' name="logout" type='submit'>Log out</button>
+<form action='/sessions/destroy' method='post'>
+    <input type='submit' name="logout" value="Log out">
 </form>
 <br>
 <br>
@@ -32,53 +32,36 @@ Log out:
 
 <form action='/books/add' method="POST">
 <label for="title">Add a title</label>
-<input type="text" name="title2">
-<label for="author">Add an author</label>
-<input type="author" name="author2">
-<label for="genre">Add a genre</label>
-<input type="genre" name="genre2">
-<label for="isbn">Add an isbn</label>
-<input type="isbn" name="isbn2">
-    <button class='submit' name="addbook" type='submit'>Add</button>
-</form>
-<br>
-<br>
-<br>
-<br>
-<h3>Search for a book</h3>
-<br>
-<br>
-<h4>Search for a book by title, author, genre or isbn</h4>
-
-<form action='/books/find'>
-<label for="title">Enter a title</label>
 <input type="text" name="title">
-<label for="author">Enter an author</label>
+<label for="author">Add an author</label>
 <input type="author" name="author">
-<label for="genre">Enter a genre</label>
+<label for="genre">Add a genre</label>
 <input type="genre" name="genre">
-<label for="isbn">Enter an isbn</label>
+<label for="isbn">Add an isbn</label>
 <input type="isbn" name="isbn">
-    <button class='submit' name="searchbook" type='submit'>Submit</button>
+<input type='submit' name="addbook" value="Add a new book">
 </form>
 <br>
+<br>
+<br>
+<br>
+
 <h3>View all books</h3>
 <ol>
    <% @books.each do |book| %>
-     
-     <li>
+    <li>
        <h3><%= book.title %></h3>
            <%= book.author %>
          <p><%= book.genre %></p>
          <p><%= book.isbn%></p>     
     </li>
-   <% end %>
- </ol>
-
-
-
-</div>
-
+    <form action="/books/<%= book.id %>" method="post">
+      <input type='hidden' name='_method' value='DELETE'/>
+      <input type="submit" value="Delete">
+    </form>
+    
+<% end %>
+</ol>
 
 
 <style>

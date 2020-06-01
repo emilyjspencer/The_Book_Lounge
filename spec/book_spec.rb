@@ -15,9 +15,9 @@ require 'database_helpers'
 
   describe '.all' do
     it 'shows all of the books' do
-      connection = PG.connect(dbname: 'the_book_lounge_test')  # connect to the test database
+      connection = PG.connect(dbname: 'the_book_lounge_test')  
       book = Book.create_entry(title: 'Frankenstein', author: 'Mary Shelley', genre: 'gothic', isbn: '9781977841438')
-      Book.create_entry(title: 'Business for Beginners', author: 'Lara Bryan', genre: 'non-fiction', isbn: '9781474940139') # second book for test purposes 
+      Book.create_entry(title: 'Business for Beginners', author: 'Lara Bryan', genre: 'non-fiction', isbn: '9781474940139') 
       books = Book.all 
       expect(book).to be_a Book
       expect(book.author).to eq "Mary Shelley"
@@ -26,5 +26,16 @@ require 'database_helpers'
       expect(book.isbn).to eq "9781977841438"
     end
   end
+
+  describe '.delete' do
+    it 'deletes a book' do
+      book = Book.create_entry(title: 'Frankenstein', author: 'Mary Shelley', genre: 'gothic', isbn: '9781977841438')
+      Book.create_entry(title: 'Business for Beginners', author: 'Laura Bryan', genre: 'non-fiction', isbn: '9781474940139')
+      Book.delete(id: book.id)
+      expect(book.title).not_to eq('Business for Beginners')
+    end 
+  end
+
+ 
 
 end 
