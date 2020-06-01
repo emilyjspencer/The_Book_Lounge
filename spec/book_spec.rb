@@ -2,6 +2,7 @@ require 'book'
 require 'database_helpers'
 
  describe Book do
+  let(:review_class) { double(:review_class) }
  
    describe '.create_entry' do
      it 'creates a new book entry' do
@@ -52,6 +53,14 @@ require 'database_helpers'
       expect(result.title).to eq 'The Princess Diaries'
       expect(result.genre).to eq 'humour'
     end
+  end 
+
+  describe '#add_review' do
+    it 'calls the find method on the Review class' do
+      book = Book.create_entry(title: 'Frankenstein', author: 'Mary Shelley', genre: 'gothic', isbn: '9781847493507')
+      expect(review_class).to receive(:find).with(book_id: book.id)
+      book.add_review(review_class)
+    end 
   end 
 
 
