@@ -1,0 +1,1 @@
+CREATE TABLE reviews(id SERIAL PRIMARY KEY, text VARCHAR(400), book_id INTEGER REFERENCES the_book_lounge (id));

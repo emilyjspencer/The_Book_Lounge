@@ -6,5 +6,5 @@ require 'pg'
 
    connection = PG.connect(dbname: 'the_book_lounge_test') 
 
-   connection.exec("TRUNCATE the_book_lounge_test;") 
+   connection.exec("TRUNCATE the_book_lounge, comments, users") 
  end
