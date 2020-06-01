@@ -5,10 +5,80 @@
   <link type="text/css" rel="stylesheet" href= "/css/index.css">
 </head>
 <body>
+<div class="reading">
+<img id="booklounge" class="center" src="Images/booklounge.png">
+
+ <div class="container">
+  <div class="rectangle">
+    <h2>New Books We Love</h2>
+  </div>
+  <div class="rectangle mid">
+    <h2>Book Finder</h2>   </div>
+  <div class="rectangle">
+    <h2>View our Book Lists</h2>
+  </div>
+</div>
+ <br>
 <h2>Add a review</h2>
 <form action="/books/<%= @book_id %>/reviews" method="POST">
   <input type="text" name="review" placeholder="Add a review">
   <input type="submit" name="submit" value="Submit">
 </form>
+<style>
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+.reading {
+  background-color: #f2f2f2;
+  font-size: 20px;
+  text-align: center;
+  width: 1500px;
+  max-width: 1500px;
+}
+
+
+body {
+  font-family: Dancing Script;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1500px;
+  }
+  
+  .rectangle {
+    font-family: Dancing Script;
+    background:  #e6ffff;
+    color: gray;
+    padding: 20px;
+    transition: 2.9s background;
+    height: 100px;
+    flex: 1 1 220px;
+  }
+  
+  .mid {
+    background:  #f2f2f2;;
+  }
+  
+  .rectangle:hover {
+    background: #db8ee6;
+  }
+  
+  h2 {
+    font-size: 30px;
+  }
+
+  booklounge {
+    width: 100%;
+  }
+
+</style>
 </body>
 </html>

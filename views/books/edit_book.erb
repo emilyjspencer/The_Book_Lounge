@@ -1,11 +1,36 @@
 <!DOCTYPE html>
+<html>
 <head>
   <meta charset="utf-8">
   <title>Edit book</title>
-  <link type="text/css" rel="stylesheet" href="/css/index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-<h2>Edit the book record</h2>
+<div class="reading">
+<img id="booklounge" class="center" src="Images/booklounge.png" alt="bookbanner">
+
+ <div class="container">
+  <div class="rectangle">
+    <h2>New Books We Love</h2>
+  </div>
+  <div class="rectangle mid">
+    <h2>Book Finder</h2>   </div>
+  <div class="rectangle">
+    <h2>View our Book Lists</h2>
+  </div>
+</div>
+ <br>
+ <form action="/" method="get">
+<input id="home" type="submit" value="Back to Home">
+</form>
+<br>
+<br>
+<form action='/sessions/destroy' method='post'>
+    <input id="logout" type='submit' name="logout" value="Log out">
+</form>
+<br>
+<br>
+<h2>Edit book record</h2>
 <form action="/books/<%= @book.id %>" method="post">
 <input type="hidden" name="_method" value="PATCH">
  <label for="title">Title</label>
@@ -18,5 +43,75 @@
  <input type="text" name="isbn" value="<%= @book.isbn %>" placeholder="Edit isbn">
 <input type="submit" value="Update Book Record">
 </form>
+</div>
+
+<style>
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 500px;
+}
+
+.reading {
+  background-color: #f2f2f2;
+  font-size: 20px;
+  text-align: center;
+  width: 1500px;
+  max-width: 1500px;
+}
+
+
+body {
+  font-family: Dancing Script;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1500px;
+  }
+  
+  .rectangle {
+    font-family: Dancing Script;
+    background:  #e6ffff;
+    color: gray;
+    padding: 20px;
+    transition: 2.9s background;
+    height: 100px;
+    flex: 1 1 220px;
+  }
+  
+  .mid {
+    background:  #f2f2f2;;
+  }
+  
+  .rectangle:hover {
+    background: #db8ee6;
+  }
+
+  #home {
+    font-family: Dancing Script;
+    font-size: 20px;
+  }
+
+  #logout {
+    float: right;
+    font-family: Dancing Script;
+    font-size: 20px;
+  }
+  
+  h2 {
+    font-size: 30px;
+  }
+
+  booklounge {
+    width: 100%;
+  }
+
+</style>
+
 </body>
 </html>

@@ -5,11 +5,15 @@
   <meta charset="utf-8">
   <title>All Books</title>
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="/css/index.css">
+
 </head>
 <body>
+<div class="reading">
 <img id="booklounge" class="center" src="Images/booklounge.png">
-<div class="container">
+<form action='/sessions/destroy' method='post'>
+    <input id="logout" type='submit' name="logout" value="Log out">
+</form>
+ <div class="container">
   <div class="rectangle">
     <h2>New Books We Love</h2>
   </div>
@@ -19,14 +23,12 @@
     <h2>View our Book Lists</h2>
   </div>
 </div>
+ <br>
+ 
 <form action="/" method="get">
-<input type="submit" value="Back to Home">
+<input id="home" type="submit" value="Back to Home">
 </form>
 <div class="reading">
-Log out:
-<form action='/sessions/destroy' method='post'>
-    <input type='submit' name="logout" value="Log out">
-</form>
 <br>
 <br>
 <br>
@@ -52,11 +54,13 @@ Log out:
 <ol>
    <% @books.each do |book| %>
     <li>
-       <h3><%= book.title %></h3>
-           <%= book.author %>
-         <p><%= book.genre %></p>
-         <p><%= book.isbn%></p>     
+       <h3 id="titlelabel">Title:   <%= book.title %></h3>
+           <p id="authorlabel">Author:   <%= book.author %></p>
+         <p id="genrelabel">Genre:   <%= book.genre %></p>
+         <p id="isbnlabel">Isbn:   <%= book.isbn%></p>     
     </li>
+    <br>
+    <div class="flex-container">
     <form action="/books/<%= book.id %>" method="post">
       <input type='hidden' name='_method' value='DELETE'/>
       <input type="submit" value="Delete">
@@ -67,6 +71,7 @@ Log out:
     <form action="/books/<%= book.id %>/reviews/new" method="get">
     <input type="submit" value="Add review">
     </form>
+    </div>
       <ul>
         <% book.add_review.each do |review| %>
           <li><%= review.text %></li>
@@ -74,10 +79,10 @@ Log out:
       </ul>
 <% end %>
 </ol>
-
+</div>
 
 <style>
-<div class="reading">
+
 
 .center {
   display: block;
@@ -98,6 +103,12 @@ Log out:
 body {
   font-family: Dancing Script;
 }
+
+.flex-container {
+  display: flex;
+  text-align: center;
+}
+
 
 .container {
     display: flex;
@@ -127,8 +138,39 @@ body {
     font-size: 30px;
   }
 
-  img {
-    width: 1500px;
+  #booklounge {
+    width: 100%;
+  }
+
+  #logout {
+    float: right;
+    font-family: Dancing Script;
+    font-size: 20px;
+  }
+
+  #home {
+    font-family: Dancing Script;
+    font-size: 20px;
+  }
+
+  #titlelabel {
+    color: #5c5c8a;
+  }
+
+  #authorlabel {
+    color: #5c5c8a;
+  }
+
+  #genrelabel {
+    color: #5c5c8a;
+  }
+
+  #isbnlabel {
+    color: #5c5c8a;
+  }
+
+  submit {
+    font-family: Dancing Script;
   }
 
 
