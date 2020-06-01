@@ -1,4 +1,5 @@
 require_relative 'database_connection' 
+require_relative 'review'
 
 class Book
   attr_reader :title, :author, :genre, :isbn, :id
@@ -52,6 +53,11 @@ class Book
       genre: result[0]['genre'], 
       isbn: result[0]['isbn'])
   end
+
+  def add_review(review_class = Review)
+    review_class.find(book_id: id)
+  end 
+
 
   
 

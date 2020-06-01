@@ -50,7 +50,7 @@ class TheBookLounge < Sinatra::Base
     erb(:'reviews/new')
   end
 
-  post '/books/id:reviews' do
+  post '/books/:id/reviews' do
     Review.create(text: params[:review], book_id: params[:id])
     redirect '/books'
   end 
@@ -68,11 +68,20 @@ class TheBookLounge < Sinatra::Base
   end 
 
   get '/sessions/new' do
-    erb(:"users/new")
+    erb(:"sessions/new")
   end 
 
+
   post '/sessions' do
-    redirect to '/books'
+    user = User.authenticate(name: params[:name], email: params[:email], password: params[:password])
+    if user
+      session[:user_id] = user.id
+      redirect('/books')
+      flash[:success] = "Welcome to The Book Lounge, #{user.email}"
+    else
+      flash[:notice] = 'Incorrect login information. Please try again.'
+      redirect '/sessions/new'
+    end
   end
 
   post '/sessions/destroy' do

@@ -24,6 +24,12 @@ attr_reader :id, :name, :email, :password
     )
   end
 
+  def self.authenticate(name:, email:, password:)
+    result = DatabaseConnection.query("SELECT * FROM users WHERE email = '#{email}'")
+    return unless result.any?
+    User.new(id: result[0]['id'], name: result[0]['name'], email: result[0]['email'])
+  end
+
 
 
 end 
