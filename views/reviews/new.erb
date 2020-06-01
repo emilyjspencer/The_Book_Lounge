@@ -5,9 +5,14 @@
   <link type="text/css" rel="stylesheet" href= "/css/index.css">
 </head>
 <body>
+<form action='/sessions/destroy' method='post'>
+    <input id="logout" type='submit' name="logout" value="Log out">
+</form>
 <div class="reading">
 <img id="booklounge" class="center" src="Images/booklounge.png">
-
+<form action="/" method="get">
+<input id="home" type="submit" value="Back to Home">
+</form>
  <div class="container">
   <div class="rectangle">
     <h2>New Books We Love</h2>
@@ -77,6 +82,17 @@ body {
 
   booklounge {
     width: 100%;
+  }
+
+  #logout {
+    float: right;
+    font-family: Dancing Script;
+    font-size: 20px;
+  }
+
+  #home {
+    font-family: Dancing Script;
+    font-size: 20px;
   }
 
 </style>
